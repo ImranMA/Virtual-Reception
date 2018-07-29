@@ -62,13 +62,11 @@ namespace VirtualReception
 
         #region Video
         private FaceAPI.FaceServiceClient _faceClient = null;
-        private VisionAPI.VisionServiceClient _visionClient = null;
         private readonly FrameGrabber<LiveCameraResult> _grabber = null;
         private static readonly ImageEncodingParam[] s_jpegParams = {
             new ImageEncodingParam(ImwriteFlags.JpegQuality, 60)
         };
         private readonly CascadeClassifier _localFaceDetector = new CascadeClassifier();
-        private bool _fuseClientRemoteResults;
         private LiveCameraResult _latestResultsToDisplay = null;      
         private DateTime _startTime;
         private bool ImageSaveInProgress = false;
@@ -239,35 +237,8 @@ namespace VirtualReception
                 EmotionScores = faces.Select(e => e.FaceAttributes.Emotion).ToArray()
             };
         }
-
-       
-
-       
-        private BitmapSource VisualizeResult(VideoFrame frame)
-        {
-            // Draw any results on top of the image. 
-            BitmapSource visImage = frame.Image.ToBitmapSource();
-
-            var result = _latestResultsToDisplay;
-
-            if (result != null)
-            {
-                // See if we have local face detections for this image.
-                var clientFaces = (OpenCvSharp.Rect[])frame.UserData;
-                if (clientFaces != null && result.Faces != null)
-                {
-                    // If so, then the analysis results might be from an older frame. We need to match
-                    // the client-side face detections (computed on this frame) with the analysis
-                    // results (computed on the older frame) that we want to display. 
-                    MatchAndReplaceFaceRectangles(result.Faces, clientFaces);
-                }
-
-                //visImage = Visualization.DrawFaces(visImage, result.Faces, result.EmotionScores, result.CelebrityNames);
-               // visImage = Visualization.DrawTags(visImage, result.Tags);
-            }
-
-            return visImage;
-        }
+               
+             
 
         /// <summary> Populate CameraList in the UI, once it is loaded. </summary>
         /// <param name="sender"> Source of the event. </param>
@@ -303,7 +274,7 @@ namespace VirtualReception
             _grabber.AnalysisFunction = EmotionAnalysisFunction;
         }
 
-        private async void CameraThreadStart()
+        private void CameraThreadStart()
         {
 
             this.Dispatcher.Invoke(async () =>
@@ -345,19 +316,7 @@ namespace VirtualReception
         {
             await _grabber.StopProcessingAsync();
         }
-
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        {
-            //SettingsPanel.Visibility = 1 - SettingsPanel.Visibility;
-        }
-
-        private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
-        {
-            //SettingsPanel.Visibility = Visibility.Hidden;
-            Properties.Settings.Default.Save();
-        }
-
-        
+              
 
         private FaceAPI.Contract.Face CreateFace(FaceAPI.Contract.FaceRectangle rect)
         {
@@ -371,60 +330,6 @@ namespace VirtualReception
                     Height = rect.Height
                 }
             };
-        }
-
-        private FaceAPI.Contract.Face CreateFace(VisionAPI.Contract.FaceRectangle rect)
-        {
-            return new FaceAPI.Contract.Face
-            {
-                FaceRectangle = new FaceAPI.Contract.FaceRectangle
-                {
-                    Left = rect.Left,
-                    Top = rect.Top,
-                    Width = rect.Width,
-                    Height = rect.Height
-                }
-            };
-        }
-
-        private FaceAPI.Contract.Face CreateFace(Common.Rectangle rect)
-        {
-            return new FaceAPI.Contract.Face
-            {
-                FaceRectangle = new FaceAPI.Contract.FaceRectangle
-                {
-                    Left = rect.Left,
-                    Top = rect.Top,
-                    Width = rect.Width,
-                    Height = rect.Height
-                }
-            };
-        }
-
-        private void MatchAndReplaceFaceRectangles(FaceAPI.Contract.Face[] faces, OpenCvSharp.Rect[] clientRects)
-        {
-            // Use a simple heuristic for matching the client-side faces to the faces in the
-            // results. Just sort both lists left-to-right, and assume a 1:1 correspondence. 
-
-            // Sort the faces left-to-right. 
-            var sortedResultFaces = faces
-                .OrderBy(f => f.FaceRectangle.Left + 0.5 * f.FaceRectangle.Width)
-                .ToArray();
-
-            // Sort the clientRects left-to-right.
-            var sortedClientRects = clientRects
-                .OrderBy(r => r.Left + 0.5 * r.Width)
-                .ToArray();
-
-            // Assume that the sorted lists now corrrespond directly. We can simply update the
-            // FaceRectangles in sortedResultFaces, because they refer to the same underlying
-            // objects as the input "faces" array. 
-            for (int i = 0; i < Math.Min(faces.Length, clientRects.Length); i++)
-            {
-                // convert from OpenCvSharp rectangles
-                OpenCvSharp.Rect r = sortedClientRects[i];
-                sortedResultFaces[i].FaceRectangle = new FaceAPI.Contract.FaceRectangle { Left = r.Left, Top = r.Top, Width = r.Width, Height = r.Height };
-            }
         }
         
 
@@ -447,17 +352,7 @@ namespace VirtualReception
         /// The default subscription key prompt message
         /// </summary>
         private const string DefaultSubscriptionKeyPromptMessage = "Paste your subscription key here to start";
-
-        /// <summary>
-        /// You can also put the primary key in app.config, instead of using UI.
-        /// string subscriptionKey = ConfigurationManager.AppSettings["primaryKey"];
-        /// </summary>
-        private string subscriptionKey;
-
-        /// <summary>
-        /// The data recognition client
-        /// </summary>
-        private DataRecognitionClient dataClient;
+                   
 
         /// <summary>
         /// The microphone client
@@ -655,28 +550,20 @@ namespace VirtualReception
             switch (topIntent)
             {
                 case "Meeting":
-                    MeetingContext();
-                    //FindNextMessage();
-                   // MicroPhoneThread();
+                    MeetingContext();                  
                     break;
                 case "VisitorInfo":
-                    VisitorInfo(entityFound);
-                   //FindNextMessage();
-                 //   MicroPhoneThread();
+                    VisitorInfo(entityFound);                
                     break;
                 case "Consent":
                     Consent(_Data);
-                    //FindNextMessage();
-                    //MicroPhoneThread();
                     break;
                 case "None":
-                    TextToSpeechNow("sorry i dont understand you",false);
-                    //MicroPhoneThread();
-                   // FindNextMessage();
+                    TextToSpeechNow("sorry i dont understand you",false);                 
                     
                     break;
                 default:
-                    //Console.WriteLine("Default case");
+
                     break;
             }
 
@@ -712,9 +599,7 @@ namespace VirtualReception
                 TextToSpeechNow(VirtualReception.MessageConstants.PictrueConsent, false);
                 MicroPhoneThread();
                 return;
-            }
-
-            //this.micClient.EndMicAndRecognition();
+            }          
 
         }
 
@@ -730,9 +615,7 @@ namespace VirtualReception
             {
                 VirtualReception.VisitorInfo.firstName = entity;
                 return;
-            }
-
-           
+            }           
         }
 
         private void Consent(LUISResponse _Data)
@@ -751,8 +634,7 @@ namespace VirtualReception
             }
             else
             {
-                VirtualReception.VisitorInfo.PictureTaken = false;
-                //FindNextMessage();
+                VirtualReception.VisitorInfo.PictureTaken = false;                
                 return;
             }
         }

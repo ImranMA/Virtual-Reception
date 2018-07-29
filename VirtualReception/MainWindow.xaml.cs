@@ -49,11 +49,10 @@ using System.Drawing.Imaging;
 using Microsoft.CognitiveServices.SpeechRecognition;
 using System.Configuration;
 using System.Speech.Synthesis;
-using SpeechToTextWPFSample;
 using System.Threading;
 using VideoFrameAnalyzer;
 
-namespace LiveCameraSample
+namespace VirtualReception
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -686,31 +685,31 @@ namespace LiveCameraSample
 
         public void FindNextMessage()
         {
-            if (!LiveCameraSample.VisitorInfo.UserContextTaken)
+            if (!VirtualReception.VisitorInfo.UserContextTaken)
             {
-                TextToSpeechNow(LiveCameraSample.MessageConstants.MEETINGMESSAGE,false);
+                TextToSpeechNow(MessageConstants.MEETINGMESSAGE,false);
                 MicroPhoneThread();
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(LiveCameraSample.VisitorInfo.LastName))
+            if (string.IsNullOrWhiteSpace(VirtualReception.VisitorInfo.LastName))
             {
-                TextToSpeechNow(LiveCameraSample.MessageConstants.LASTNAME, false);
+                TextToSpeechNow(VirtualReception.MessageConstants.LASTNAME, false);
                 MicroPhoneThread();
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(LiveCameraSample.VisitorInfo.firstName))
+            if (string.IsNullOrWhiteSpace(VirtualReception.VisitorInfo.firstName))
             {
-                TextToSpeechNow(LiveCameraSample.MessageConstants.FIRSTNAME, false);
+                TextToSpeechNow(VirtualReception.MessageConstants.FIRSTNAME, false);
                 MicroPhoneThread();
                 return;
             }
 
 
-            if (!LiveCameraSample.VisitorInfo.PictureTaken)
+            if (!VirtualReception.VisitorInfo.PictureTaken)
             {
-                TextToSpeechNow(LiveCameraSample.MessageConstants.PictrueConsent, false);
+                TextToSpeechNow(VirtualReception.MessageConstants.PictrueConsent, false);
                 MicroPhoneThread();
                 return;
             }
@@ -721,15 +720,15 @@ namespace LiveCameraSample
 
         public void VisitorInfo(string entity)
         {
-            if (string.IsNullOrWhiteSpace(LiveCameraSample.VisitorInfo.LastName))
+            if (string.IsNullOrWhiteSpace(VirtualReception.VisitorInfo.LastName))
             {
-                LiveCameraSample.VisitorInfo.LastName = entity;
+                VirtualReception.VisitorInfo.LastName = entity;
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(LiveCameraSample.VisitorInfo.firstName))
+            if (string.IsNullOrWhiteSpace(VirtualReception.VisitorInfo.firstName))
             {
-                LiveCameraSample.VisitorInfo.firstName = entity;
+                VirtualReception.VisitorInfo.firstName = entity;
                 return;
             }
 
@@ -742,17 +741,17 @@ namespace LiveCameraSample
             var topIntent = _Data.intents.Count() > 0 ? _Data.intents[0].intent : "";
             var sentiment = _Data.sentimentAnalysis !=null && _Data.sentimentAnalysis.label.ToLower() =="positive" &&  _Data.sentimentAnalysis.score > Convert.ToDouble(0.80) ? "Positive" : "";
 
-            if (!string.IsNullOrEmpty(LiveCameraSample.VisitorInfo.firstName) && !string.IsNullOrEmpty(LiveCameraSample.VisitorInfo.LastName) &&  !LiveCameraSample.VisitorInfo.PictureTaken && sentiment =="Positive")
+            if (!string.IsNullOrEmpty(VirtualReception.VisitorInfo.firstName) && !string.IsNullOrEmpty(VirtualReception.VisitorInfo.LastName) &&  !VirtualReception.VisitorInfo.PictureTaken && sentiment =="Positive")
             {
                 this.micClient.EndMicAndRecognition();
                 CameraThreadStart();
-                LiveCameraSample.VisitorInfo.PictureTaken = true;
+                VirtualReception.VisitorInfo.PictureTaken = true;
                
                 return;
             }
             else
             {
-                LiveCameraSample.VisitorInfo.PictureTaken = false;
+                VirtualReception.VisitorInfo.PictureTaken = false;
                 //FindNextMessage();
                 return;
             }
@@ -760,7 +759,7 @@ namespace LiveCameraSample
 
         public void MeetingContext()
         {
-            LiveCameraSample.VisitorInfo.UserContextTaken = true;
+            VirtualReception.VisitorInfo.UserContextTaken = true;
         }
 
         public void TextToSpeechNow(string text,bool NewThread)

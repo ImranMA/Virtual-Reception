@@ -1,14 +1,5 @@
-﻿using LiveCameraSample;
-using Microsoft.CognitiveServices.SpeechRecognition;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Speech.Synthesis;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SpeechToTextWPFSample
-{  
+﻿namespace VirtualReception
+{
     public class LUISResponse
     {
         public string query { get; set; }

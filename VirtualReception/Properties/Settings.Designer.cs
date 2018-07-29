@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LiveCameraSample.Properties {
+namespace VirtualReception.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -39,7 +39,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace LiveCameraSample
+namespace VirtualReception
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -48,7 +48,7 @@ namespace LiveCameraSample
     {
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            LiveCameraSample.Properties.Settings.Default.Save();
+            VirtualReception.Properties.Settings.Default.Save();
         }
     }
 }

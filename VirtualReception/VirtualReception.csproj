@@ -111,9 +111,8 @@
       <HintPath>..\packages\OpenCvSharp3-AnyCPU.3.1.0.20160622\lib\net45\OpenCvSharp.UserInterface.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SpeechClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=720c26922c782415, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SpeechClient\SpeechClient.dll</HintPath>
+    <Reference Include="SpeechClient">
+      <HintPath>..\ExternalLib\SpeechClient\SpeechClient.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

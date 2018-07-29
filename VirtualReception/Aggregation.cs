@@ -37,7 +37,7 @@ using Microsoft.ProjectOxford.Common.Contract;
 using System;
 using System.Collections.Generic;
 
-namespace LiveCameraSample
+namespace VirtualReception
 {
     internal class Aggregation
     {

@@ -31,7 +31,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // 
 
-namespace LiveCameraSample
+namespace VirtualReception
 {
     // Class to hold all possible result types. 
     public class LiveCameraResult

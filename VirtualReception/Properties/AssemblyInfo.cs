@@ -40,11 +40,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LiveCameraSample")]
+[assembly: AssemblyTitle("VirtualReception")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LiveCameraSample")]
+[assembly: AssemblyProduct("VirtualReception")]
 [assembly: AssemblyCopyright("Copyright \u00A9  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

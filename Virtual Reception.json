@@ -1,0 +1,491 @@
+{
+  "luis_schema_version": "3.0.0",
+  "versionId": "0.1",
+  "name": "Virtual Reception",
+  "desc": "",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "Consent"
+    },
+    {
+      "name": "Meeting"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "VisitorInfo"
+    }
+  ],
+  "entities": [
+    {
+      "name": "consentEntity",
+      "roles": []
+    },
+    {
+      "name": "VisitorName",
+      "roles": []
+    }
+  ],
+  "composites": [],
+  "closedLists": [
+    {
+      "name": "meeting synonyms",
+      "subLists": [
+        {
+          "canonicalForm": "meeting",
+          "list": [
+            "meeting",
+            "meeting",
+            "meeting",
+            "speak"
+          ]
+        },
+        {
+          "canonicalForm": "interview",
+          "list": [
+            "appointment",
+            "meeting"
+          ]
+        },
+        {
+          "canonicalForm": "booking",
+          "list": [
+            "see"
+          ]
+        },
+        {
+          "canonicalForm": "appointment",
+          "list": []
+        }
+      ],
+      "roles": []
+    }
+  ],
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "prebuiltEntities": [
+    {
+      "name": "datetimeV2",
+      "roles": []
+    },
+    {
+      "name": "dimension",
+      "roles": []
+    },
+    {
+      "name": "email",
+      "roles": []
+    },
+    {
+      "name": "number",
+      "roles": []
+    },
+    {
+      "name": "phonenumber",
+      "roles": []
+    }
+  ],
+  "model_features": [
+    {
+      "name": "RandomWors",
+      "mode": true,
+      "words": "right,yes,ok,sure,really,yeah,okay,certain,confident,- yes,affirmative,just,oh,yep,left",
+      "activated": true
+    },
+    {
+      "name": "Names",
+      "mode": true,
+      "words": "alex,john,steve,mcgragh,shane,sarah,allen,loc,christian,michael,david,andrew,chris,ryan,brian,james,paul,mark,andy,kevin,scott,daniel,jason,robert,matthew,peter,jim,mike,gary,jeff,richard,eric,patrick,joe,keith,tom,stephen,thomas,steven,tim,george,william,matt,anthony,bill,greg,jack,dennis,joseph,charles,frank,dan,dave,ben,bob,mary,tony,nick,sam,charlie,laura,aaron,rob,josh,sean,lisa,jerry,rick,justin,amy,jamie,emily,katie,rachel,jessica,jake,amanda,jennifer,jonathan,ashley,hannah,stephanie,rebecca,elizabeth,emma,kate,michelle,melissa,kelly,anna,julia,nicole,lauren,megan,heather,natalie,sara,christina,susan,maria,caroline,angela,julie,karen,linda,jenny,andrea,amber,tina,jane,barbara,nancy,cindy,carol,christine,monica,sandra,alice,diana,helen,donna,anne,catherine,judy,wendy,sharon,patricia,kim,margaret,janet,kathy,betty,ann,rose,jean,diane,ruth,kathleen,ellen,annie,joyce,joan,marie,paula,martha,deborah,beth,grace,debbie,samantha,brenda,denise,sue,cheryl,lucy,henry,sally,claire,erin,holly,shannon,melanie,jackie,sandy,jill,charlotte,danielle,christopher,leah,taylor,victoria,kimberly,courtney,tracy,madison,morgan,dana,leslie,molly,jackson,franklin,marion,lee,logan,warren,jefferson,marshall,tyler,hamilton,monroe,lincoln,washington,montgomery,harrison,clay,johnson,greenville,martin,henderson,davis,jasper,butler,williams,decatur,harris,anderson,harvey,evans,mason,jones,clark,morris,richmond,howard,mitchell,douglas,lewis,miller,clayton,campbell,adams,smith,randolph,hudson,robinson,craig,brown,thompson,walker,grant,moore,russell,crawford,carroll,edwards,rogers,ellis,graham,nelson,baker,dawson,phillips,sherman,shelby,gordon,carter,murray,greenwood,cameron,webster,cleveland,polk,parker,chester,columbia,brooks,hall,wheeler,bailey,houston,dallas,austin,lancaster,camden,orange,kent,calhoun,benton,georgetown,columbus,oakland,arlington,newark,dayton,athens,albany,lexington,bedford,fairfield,portland,springfield,salem,wilmington,auburn,manchester,concord,princeton,jacksonville,boston,rochester,newport,burlington,oxford,atlanta,louisville,durham,kingston,plymouth,cambridge,birmingham,norfolk,dover,hartford,tooba,nadia,sunita,iraj,faiza,ali,neha,uzma,sonia,natasha,anita,tara,tania,hassan,ana,mona,amir,ahmad,vanessa,gina,angel,tiffany,alexandra,valerie,sabrina,alicia,carmen,nina,ahmed,lynn,angie,claudia,liz,renee,cynthia,mandy,nikki,pamela,christy,cathy,becky,dawn,alyssa,paige,carolyn,vicki,kayla,elaine,lori,tammy,jess,connie,lynne,joanne,alison,aimee,theresa,teresa,debra,maureen,kathryn,lydia,suzanne,janice,yvonne,jen,laurie,mindy,katherine,joanna,colleen,jeffrey,jacqueline,allison,shelly,judith,louise,gail,lorraine,meredith,stuart,sophie,steph,leigh,kelsey,casey,doris,eliza,lesley,curtis,haley,pauline,derek,andrews,johnston,bryan,caitlin,todd,bennett,murphy,brandon,kyle,palmer,danny,jesse,travis,joel,evan,doug,jeremy,alan,joshua,billy,kenny,shawn,cody,larry,glenn,barry,fred,phil,gregory,walter,neil,bruce,donald,carl,jon,arthur,ronald,roy,wright,colin,simon,leonard,roger,albert,ian,francis,harold,samuel,philip,alexander,allan,nicholas,bernard,blake,owen,benjamin,edgar,nathan,wallace,bradley,duncan,adrian,jacob,dominic,lucas,gabriel,hunter,geoff,troy,caleb,florence,trevor,julian,timothy,barnes,gavin,brent,corey,darren,jay,brendan,luke,dustin,jordan,zach,joey,connor,ethan,gabe,chad,jared,nigel,daryl,jessie,shaun,fiona,johnny,pete,mick,cassie,malcolm,maddie,zack,mikey,conor,tommy,ellie,eddie,dylan,marty,mitch,leanne,jonny,mr.,ronnie,jimmy,willie,erik,richie,ricky,bobby,robbie,stevie,sammy,rudy,frankie,carlos,carey,elvis,elton,jorge,lopez,dion,mccartney,ross,madonna,bruno,mariah,rihanna,whitney,jovi,benny,martinez,diaz,perez,gomez,beyonce,aguilera,enrique,britney,timberlake,adele,eminem,selena,clarkson,kanye,pink,rhianna,selena gomez,ludacris,smithfield,akon,warsaw,jamestown,neyo,aisha,ayesha",
+      "activated": true
+    }
+  ],
+  "regex_features": [],
+  "patterns": [],
+  "utterances": [
+    {
+      "text": "adam",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 0,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "blah blah blah blah",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "blah blah blah blah blah",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "but i have a meeting with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "can i see alex ?",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "can i see robert",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "do i make any sense?",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "have a meeting with aisha",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "hey whats up",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "hi can i speak with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "hi i have a meeting jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "hi i have a meeting with alex",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "hi i have a meeting with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "hi i have an appointment with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "hi i have an interview with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "hi is luke in today ?",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 6,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "i am smiling",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i have a meeting with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "i have an appointment with peter",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "i need to see alex",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "i need to speak with alex",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "i'm meeting with anaya",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "inaaya",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 0,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "ingli smile",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "it said it somewhere to ception",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "jason",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 0,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "johnson",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 0,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "my first name is dora",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 17,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "my last name is alex",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 16,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "need to speak with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "no",
+      "intent": "Consent",
+      "entities": [
+        {
+          "entity": "consentEntity",
+          "startPos": 0,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "no really not",
+      "intent": "Consent",
+      "entities": [
+        {
+          "entity": "consentEntity",
+          "startPos": 0,
+          "endPos": 1
+        },
+        {
+          "entity": "consentEntity",
+          "startPos": 10,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "peter",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 0,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "reggae",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 0,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "right i have a meeting with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "rubbish rubbish rubbish",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "somon",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 0,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "sorry i have a meeting with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "sure , my last name is jason",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 23,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "sure inaaya",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 5,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "sure it's mena",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 10,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "yeah sarah jones",
+      "intent": "VisitorInfo",
+      "entities": [
+        {
+          "entity": "VisitorName",
+          "startPos": 5,
+          "endPos": 9
+        },
+        {
+          "entity": "VisitorName",
+          "startPos": 11,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "yeah sure",
+      "intent": "Consent",
+      "entities": [
+        {
+          "entity": "consentEntity",
+          "startPos": 0,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "yeah yeah yeah",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "yes i have a meeting with",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "yes i have a meeting with anaya",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "yes i have a meeting with him",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "yes i have an appointment with him",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "yes i have an interview with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "yes i have meeting with jason",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "yes please",
+      "intent": "Consent",
+      "entities": [
+        {
+          "entity": "consentEntity",
+          "startPos": 0,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "yes please , i need to see alex",
+      "intent": "Meeting",
+      "entities": []
+    },
+    {
+      "text": "yum yum yum yum yum",
+      "intent": "None",
+      "entities": []
+    }
+  ]
+}
